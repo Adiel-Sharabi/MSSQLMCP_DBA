@@ -46,7 +46,7 @@ export async function createSqlConfig(serverName?: string) {
         password: process.env.SQL_PASSWORD || "",
         options: {
             encrypt: false,
-            trustServerCertificate: false,
+            trustServerCertificate: true,
             enableArithAbort: true,
         },
     };
