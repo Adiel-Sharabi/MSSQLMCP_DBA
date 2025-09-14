@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mssql-ac8": {
+      "command": "node",
+      "args": ["C:\\dev\\MSSQLMCP_DBA\\Node\\dist\\index.js"],
+      "env": {
+        "SERVER_NAME": "localhost",
+        "DATABASE_NAME": "ac8",
+        "READONLY": "false",
+        "ALLOW_SQL_SCRIPTS": "true"
+      }
+    }
+  }
+}

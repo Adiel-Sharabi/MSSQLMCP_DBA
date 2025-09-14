@@ -29,6 +29,7 @@ import { IndexUsageStatsTool } from "./tools/IndexUsageStatsTool.js";
 import { QueryPlanTool } from "./tools/QueryPlanTool.js";
 import { StatisticsUpdateTool } from "./tools/StatisticsUpdateTool.js";
 import { WaitStatsTool } from "./tools/WaitStatsTool.js";
+import { RunSqlScriptTool } from "./tools/RunSqlScriptTool.js";
 
 // MSSQL Database connection configuration
 let globalSqlPool: any = null;
@@ -93,6 +94,7 @@ const indexUsageStatsTool = new IndexUsageStatsTool();
 const queryPlanTool = new QueryPlanTool();
 const statisticsUpdateTool = new StatisticsUpdateTool();
 const waitStatsTool = new WaitStatsTool();
+const runSqlScriptTool = new RunSqlScriptTool();
 
 const server = new Server({
     name: "mssql-mcp-server",
@@ -150,7 +152,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
             indexUsageStatsTool,
             queryPlanTool,
             statisticsUpdateTool,
-            waitStatsTool
+            waitStatsTool,
+            runSqlScriptTool
         ],
 }));
 
@@ -232,6 +235,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                 break;
             case waitStatsTool.name:
                 result = await waitStatsTool.run(args);
+                break;
+            case runSqlScriptTool.name:
+                result = await runSqlScriptTool.run(args);
                 break;
             default:
                 return {
@@ -323,5 +329,6 @@ function wrapToolRun(tool: any) {
     indexUsageStatsTool,
     queryPlanTool,
     statisticsUpdateTool,
-    waitStatsTool
+    waitStatsTool,
+    runSqlScriptTool
 ].forEach(wrapToolRun);
