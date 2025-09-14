@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(ALLOW_SQL_SCRIPTS=true DATABASE_NAME=ac8 SERVER_NAME=localhost READONLY=false node dist/index.js)",
+      "Bash(node:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
