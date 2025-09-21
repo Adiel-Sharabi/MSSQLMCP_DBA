@@ -53,18 +53,8 @@ IMPORTANT RULES:
         type: "string", 
         description: "Name of the table to insert data into" 
       },
-      data: { 
-        oneOf: [
-          { 
-            type: "object", 
-            description: "Single record data object with column names as keys and values as the data to insert. Example: {\"name\": \"John\", \"age\": 30}" 
-          },
-          { 
-            type: "array", 
-            items: { type: "object" },
-            description: "Array of data objects for multiple record insertion. Each object must have identical column structure. Example: [{\"name\": \"John\", \"age\": 30}, {\"name\": \"Jane\", \"age\": 25}]" 
-          }
-        ]
+      data: {
+        description: "Data to insert - can be a single object or array of objects. Single record: {\"name\": \"John\", \"age\": 30}. Multiple records: [{\"name\": \"John\", \"age\": 30}, {\"name\": \"Jane\", \"age\": 25}]"
       },
     },
     required: ["tableName", "data"],

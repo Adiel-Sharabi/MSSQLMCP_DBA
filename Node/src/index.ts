@@ -96,8 +96,12 @@ const statisticsUpdateTool = new StatisticsUpdateTool();
 const waitStatsTool = new WaitStatsTool();
 const runSqlScriptTool = new RunSqlScriptTool();
 
+// Create dynamic server name based on database
+const databaseName = process.env.DATABASE_NAME || "default";
+const serverName = `mssql-mcp-${databaseName.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+
 const server = new Server({
-    name: "mssql-mcp-server",
+    name: serverName,
     version: "0.1.0",
 }, {
     capabilities: {

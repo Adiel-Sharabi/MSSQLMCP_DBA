@@ -18,7 +18,7 @@ export class StatisticsUpdateTool implements Tool {
         description: string;
       };
       samplePercent: {
-        type: "integer";
+        type: "number";
         description: string;
         minimum: number;
         maximum: number;
@@ -41,7 +41,7 @@ export class StatisticsUpdateTool implements Tool {
         description: "Optional: Only check statistics for a specific table"
       },
       samplePercent: {
-        type: "integer",
+        type: "number",
         description: "Optional: Percent of rows to sample when updating (default: full scan)",
         minimum: 1,
         maximum: 100

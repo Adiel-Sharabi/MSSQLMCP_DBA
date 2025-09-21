@@ -51,11 +51,11 @@ export class sp_BlitzTool implements Tool {
         description: "Table name pattern to skip during checks"
       },
       IgnorePrioritiesBelow: {
-        type: "integer",
+        type: "number",
         description: "Ignore findings with priority below this number (1-255)"
       },
       IgnorePrioritiesAbove: {
-        type: "integer", 
+        type: "number",
         description: "Ignore findings with priority above this number (1-255)"
       },
       OutputServerName: {

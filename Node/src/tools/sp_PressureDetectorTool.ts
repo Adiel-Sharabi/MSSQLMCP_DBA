@@ -23,12 +23,12 @@ export class sp_PressureDetectorTool implements Tool {
         description: "Skip getting plan XML (default: false)"
       },
       minimum_disk_latency_ms: {
-        type: "integer",
+        type: "number",
         description: "Low bound for reporting disk latency in milliseconds (default: 100)",
         minimum: 0
       },
       cpu_utilization_threshold: {
-        type: "integer",
+        type: "number",
         description: "Low bound for reporting high CPU utilization percentage (default: 50)",
         minimum: 0,
         maximum: 100
@@ -42,7 +42,7 @@ export class sp_PressureDetectorTool implements Tool {
         description: "Skip perfmon counters when you do not need them on every run (default: false)"
       },
       sample_seconds: {
-        type: "integer",
+        type: "number",
         description: "Take a sample of your server's metrics for specified seconds (default: 0)",
         minimum: 0,
         maximum: 255
@@ -64,7 +64,7 @@ export class sp_PressureDetectorTool implements Tool {
         description: "Prefix for logging table names"
       },
       log_retention_days: {
-        type: "integer",
+        type: "number",
         description: "Number of days to retain logged data",
         minimum: 1
       },
