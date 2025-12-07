@@ -26,18 +26,15 @@ export class CreateTableTool implements Tool {
       },
       partitionScheme: {
         type: "string",
-        description: "Optional: Name of the partition scheme to use for partitioned table (e.g., 'ps_PostHistory_Quarterly')",
-        required: false
+        description: "Optional: Name of the partition scheme to use for partitioned table (e.g., 'ps_PostHistory_Quarterly')"
       },
       partitionColumn: {
-        type: "string", 
-        description: "Optional: Column name to partition on (required if partitionScheme is specified, e.g., 'CreationDate')",
-        required: false
+        type: "string",
+        description: "Optional: Column name to partition on (required if partitionScheme is specified, e.g., 'CreationDate')"
       },
       filegroup: {
         type: "string",
-        description: "Optional: Filegroup to create table on (for non-partitioned tables, e.g., 'PRIMARY')",
-        required: false
+        description: "Optional: Filegroup to create table on (for non-partitioned tables, e.g., 'PRIMARY')"
       }
     },
     required: ["tableName", "columns"],

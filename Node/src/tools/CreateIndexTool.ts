@@ -28,29 +28,24 @@ export class CreateIndexTool implements Tool {
       },
       partitionScheme: {
         type: "string",
-        description: "Optional: Name of the partition scheme for partitioned index (e.g., 'ps_PostHistory_Quarterly')",
-        required: false
+        description: "Optional: Name of the partition scheme for partitioned index (e.g., 'ps_PostHistory_Quarterly')"
       },
       partitionColumn: {
         type: "string",
-        description: "Optional: Column name to partition index on (required if partitionScheme is specified)",
-        required: false
+        description: "Optional: Column name to partition index on (required if partitionScheme is specified)"
       },
       filegroup: {
         type: "string",
-        description: "Optional: Filegroup to create index on (for non-partitioned indexes, e.g., 'PRIMARY')",
-        required: false
+        description: "Optional: Filegroup to create index on (for non-partitioned indexes, e.g., 'PRIMARY')"
       },
       includedColumns: {
         type: "array",
         items: { type: "string" },
-        description: "Optional: Array of column names to include as non-key columns",
-        required: false
+        description: "Optional: Array of column names to include as non-key columns"
       },
       whereClause: {
         type: "string",
-        description: "Optional: WHERE clause for filtered index",
-        required: false
+        description: "Optional: WHERE clause for filtered index"
       }
     },
     required: ["tableName", "indexName", "columns"],
