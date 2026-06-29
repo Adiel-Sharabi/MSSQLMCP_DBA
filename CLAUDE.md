@@ -82,3 +82,11 @@ Sample configurations are provided in `Node/src/samples/`.
 3. **Monitoring & Statistics**: Wait stats, I/O analysis, index usage
 4. **Health Checks**: Database integrity, connectivity verification
 5. **Enterprise Features**: Availability groups, backup monitoring, SQL Agent jobs
+
+## Code search — delegate to the `search` agent (Haiku; cost/speed)
+
+For broad "where is X / find all callers of Y" lookups, do NOT grep-and-read many files in the main context — delegate to the read-only `search` subagent (`.claude/agents/search.md`, pinned to Haiku). It greps/reads in its own throwaway context and returns a tight `file:line` answer.
+- Default: one `search` agent per lookup.
+- Wide sweep, faster: spawn several in parallel in one message; fan out from the orchestrator, not sub-sub-agents.
+- Model: Haiku for pure search; Sonnet only when judgment is needed; never Opus for search.
+- Efficiency convention, not a correctness gate — a single known-file lookup is fine inline.
